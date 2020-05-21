@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable name="mView"
+                  type="com.example.mvp_practice.main.MainActivity"/>
+
+        <variable name="mData"
+                  type="com.example.mvp_practice.models.User"/>
+    </data>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <FrameLayout
+                android:id="@+id/main_content_frame"
+                android:layout_width="match_parent"
+                android:layout_height="250dp" />
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="@={ mData.id}"
+                android:background="@drawable/text_view_border"
+                android:padding="4dp"/>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="@={mData.userName}"
+                android:background="@drawable/text_view_border"
+                android:padding="4dp" />
+
+
+        <EditText
+                android:id="@+id/mId"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="2"
+                android:inputType="number"
+                android:hint="ID" />
+
+        <EditText
+                android:id="@+id/mName"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="Yang"
+                android:hint="姓名"
+                android:inputType="text" />
+
+        <EditText
+                android:id="@+id/mHeight"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="177"
+                android:hint="身高 (cm)"
+                android:inputType="numberSigned|numberDecimal" />
+
+        <EditText
+                android:id="@+id/mWeight"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="67"
+                android:hint="體重 (kg)"
+                android:inputType="numberSigned|numberDecimal" />
+
+        <Button
+                android:text="送出"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:onClick="@{() -> mView.toPresenter()}"/>
+
+    </LinearLayout>
+</layout>
